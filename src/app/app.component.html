@@ -1,0 +1,24 @@
+
+  <h1>
+    {{title}}
+  </h1>
+
+ <input type= 'text' #newTodo />
+<button (click)="addTodo(newTodo.value)">Add</button>
+
+<table >
+<tr >
+    <th>ID</th>
+    <th>Housework</th>
+    <th>Complete</th>
+    <th>Actions</th>
+</tr>
+<tr *ngFor = "let newTodo of todo" >
+    <td>{{newTodo.id}}</td>
+    <td>{{newTodo.label}}</td>
+    <td>{{newTodo.done ? '&#10003;' : '&#10005;'}}</td>
+    <td>
+      <button (click)="deleteTodo(newTodo)">delete</button>
+    </td>
+</tr>
+</table>
