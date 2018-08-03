@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { text } from '@angular/core/src/render3/instructions';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public cod: number= 4;
   
-  title = 'My ToDos';
+  title = 'My ToDos Housework';
   todo= [{
     label: 'Bring Milk',
     done: false, 
@@ -44,4 +45,15 @@ export class AppComponent {
     this.todo=this.todo.filter( t => t.id !== todo.id);
   }
 
+  editTask(idl: number){
+    let label = this.todo[idl-1].label;
+    let result = prompt("Edite el texto", label);
+    if (result !== null && result !== ""){
+      this.todo[idl-1].label = result;
+    }
+  }
+
+  newFunction(text){
+  alert("La tarea " +text + " esta hecha");
+  }
 }
